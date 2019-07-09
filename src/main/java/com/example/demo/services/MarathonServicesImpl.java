@@ -6,20 +6,31 @@ import com.example.demo.model.Marathon;
 import com.example.demo.repo.MarathonRepo;
 
 
-public class MarathonServicesImpl {
+public class MarathonServicesImpl implements MarathonServices{
 
 	@Override
 	public boolean insertNewMarathon(Marathon marathon) {
-		
-		if(marathon==null)
-			return false;
-		if(MarathonRepo.existsById(marathon.getId()))
-			return false;
-		else
-		{	
-			MarathonRepo.save(marathon);
+
 			return true;
 		}
+
+	@Override
+	public ArrayList<Marathon> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Marathon selectById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateMarathonById(Marathon marathon, Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	}
 /*
 	@Autowired
