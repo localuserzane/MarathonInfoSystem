@@ -59,12 +59,12 @@ public class Marathon {
 	@NotNull
 	@Column(name="Id_org")
 	private Organizer id_org;
-	
+	*/
 	
 	@ManyToOne
-	@JoinColumn(name="Id_org")
+	@JoinColumn(name="ID_org")
 	private Organizer organizer;
-	*/
+	
 	public Marathon() {
 		
 	}
@@ -118,14 +118,10 @@ public class Marathon {
 		this.time = time;
 	}
 
-	/*public Organizer getId_org() {
-		return id_org;
+	public Long getId_mar() {
+		return id_mar;
 	}
-
-	public void setId_org(Organizer id_org) {
-		this.id_org = id_org;
-	}
-	*/
+	
 	
 	
 }

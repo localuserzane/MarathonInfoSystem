@@ -11,4 +11,5 @@ public interface OrganizerService {
 	boolean updateOrganizerById_org(Organizer organizer, long id_org);
 	boolean deleteOrganizerById_org(long id_org);
 	boolean deleteOrganizerByObject(Organizer organizer);
+	boolean exportDataExcel();
 }

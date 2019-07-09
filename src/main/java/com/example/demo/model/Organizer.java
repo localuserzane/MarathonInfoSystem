@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,9 +43,9 @@ public class Organizer {
 	@Column(name="Password")
 	private String password;
 	
-	/*@OneToMany(mappedBy="marathon")
-	private Marathon marathon;
-	*/
+	@OneToMany(mappedBy="organizer")
+	private Collection<Marathon> marathons;
+	
 	//TODO Get Marathon clase from repository
 	
 	

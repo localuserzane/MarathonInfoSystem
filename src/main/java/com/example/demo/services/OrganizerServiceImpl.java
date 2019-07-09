@@ -8,6 +8,15 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Organizer;
 import com.example.demo.repo.OrganizerRepo;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 @Service
 public class OrganizerServiceImpl implements OrganizerService{
 
@@ -77,5 +86,55 @@ public class OrganizerServiceImpl implements OrganizerService{
 		}
 	return false;	
 	}
+	
+	
+	@Override
+	public boolean exportDataExcel()
+	{
+		final String FILE_NAME = "MarathonExcel.xlsx";
+
+	        XSSFWorkbook workbook = new XSSFWorkbook();
+	        XSSFSheet sheet = workbook.createSheet("Marathon info");
+	        Object[][] datatypes = {
+	                {"Name", "Place", "Distance"},
+	                {"Big", "Jelgava", 2},
+	                {"Tet", "Riga", 4},
+	                {"Kalnu", "Valmiera", 8},
+	                {"Ultra", "Sigulda", 20},
+	                {"Seb", "Balvi", 40}
+	        };
+
+	        int rowNum = 0;
+	        System.out.println("Creating excel");
+
+	        for (Object[] datatype : datatypes) {
+	            Row row = sheet.createRow(rowNum++);
+	            int colNum = 0;
+	            for (Object field : datatype) {
+	                Cell cell = row.createCell(colNum++);
+	                if (field instanceof String) {
+	                    cell.setCellValue((String) field);
+	                } else if (field instanceof Integer) {
+	                    cell.setCellValue((Integer) field);
+	                }
+	            }
+	        }
+
+	        try {
+	            FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
+	            workbook.write(outputStream);
+	            workbook.close();
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	      System.out.println("Done");
+		
+		
+		return false;
+	}
+	
+
 	
 }

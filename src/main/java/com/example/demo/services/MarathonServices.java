@@ -8,6 +8,7 @@ public interface MarathonServices {
 	ArrayList<Marathon> selectAll();
 	Marathon selectById(Long id);
 	boolean updateMarathonById(Marathon marathon,Long id);
+	
 	//boolean deleteMarathonById(Long id);
 
 	

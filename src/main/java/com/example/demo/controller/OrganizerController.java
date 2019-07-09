@@ -42,5 +42,13 @@ public class OrganizerController {
 		return "redirect:/a/view-org";
 		}
 	}
+	
+	@GetMapping(value = "/export-data")
+	public String exportData(Model model) {
+		organizerServiceImpl.exportDataExcel();
+		//model.addAttribute("object", );
+	return "export-data";
+	}
+
 }
 

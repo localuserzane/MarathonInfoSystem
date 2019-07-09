@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<form action="#" th:action="@{/a/add-marathon}" th:object="${marathon}" method="post">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" th:field="*{name}" placeholder="Name"></td>
+				<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+			</tr>
+			<tr>
+				<td>Distance</td>
+				<td><input type="text" th:field="*{distance}" placeholder="Distance"></td>
+				<td th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Distance Error</td>
+			</tr>
+			<tr>
+				<td>Place</td>
+				<td><input type="text" th:field="*{place}" placeholder="Place"></td>
+				<td th:if="${#fields.hasErrors('place')}" th:errors="*{place}">Place Error</td>
+			</tr>
+			<tr>
+				<td>Date</td>
+				<td><input type="text" th:field="*{date}" placeholder="Date"></td>
+				<td th:if="${#field.hasErrors('date')}" th:errors="*{date}">Date Error></td>
+			</tr>
+			<tr>
+				<td>Time</td>
+				<td><input type="text" th:field="*{Time}" placeholder="Time"></td>
+				<td th:if="${#field.hasErrors('time')}" th:errors="*{time}">Time Error></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Add marathon"></td>			
+			</tr>
+		</table>
+	</form>		
+</body>
