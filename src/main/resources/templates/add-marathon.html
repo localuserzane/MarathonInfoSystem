@@ -18,16 +18,7 @@
 				<td><input type="text" th:field="*{place}" placeholder="Place"></td>
 				<td th:if="${#fields.hasErrors('place')}" th:errors="*{place}">Place Error</td>
 			</tr>
-			<tr>
-				<td>Date</td>
-				<td><input type="text" th:field="*{date}" placeholder="Date"></td>
-				<td th:if="${#field.hasErrors('date')}" th:errors="*{date}">Date Error></td>
-			</tr>
-			<tr>
-				<td>Time</td>
-				<td><input type="text" th:field="*{Time}" placeholder="Time"></td>
-				<td th:if="${#field.hasErrors('time')}" th:errors="*{time}">Time Error></td>
-			</tr>
+			
 			<tr>
 				<td><input type="submit" value="Add marathon"></td>			
 			</tr>

@@ -45,21 +45,16 @@ public class Marathon {
 	@Column(name="Place")
 	private String place;
 	
-	@NotEmpty
-	@NotNull
+	//@NotEmpty
+	//@NotNull
 	@Column(name="Date")
-	private LocalDate date;
+	private int date;
 	
-	@NotEmpty
-	@NotNull
+	//@NotEmpty
+	//@NotNull
 	@Column(name="Time")
-	private LocalDate time;
+	private int time;
 	
-	/*@NotEmpty
-	@NotNull
-	@Column(name="Id_org")
-	private Organizer id_org;
-	*/
 	
 	@ManyToOne
 	@JoinColumn(name="ID_org")
@@ -69,7 +64,7 @@ public class Marathon {
 		
 	}
 	
-	public Marathon(String name,int distance, String place, LocalDate date, LocalDate time) {
+	public Marathon(String name,int distance, String place, int date, int time) {
 		setName(name);
 		setDistance(distance);
 		setPlace(place);
@@ -102,19 +97,19 @@ public class Marathon {
 		this.place = place;
 	}
 
-	public LocalDate getDate() {
+	public int getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(int date) {
 		this.date = date;
 	}
 
-	public LocalDate getTime() {
+	public int getTime() {
 		return time;
 	}
 
-	public void setTime(LocalDate time) {
+	public void setTime(int time) {
 		this.time = time;
 	}
 
@@ -123,5 +118,8 @@ public class Marathon {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Marathon [ID" +id_mar+ "Name=" +name+ ", Place=" +place+ ", Distance=" +distance+", Date=" +date+ ", Time=" +time+ ", Organizer=" +organizer+ "]";
+	}
 }
